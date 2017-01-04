@@ -16,8 +16,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBp9kURjXIETwBNDv6zJYHawu2nLkPwNRI&callback=initMap">
     </script>
     <title>Title</title>
-</head>
-<div>
+
  <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -31,8 +30,21 @@
         padding: 0;
       }
     </style>
+</head>
+<body>
 <div id="map"></div>
-<div data-bind="with:currentmarker"></div>
-<div data-bind="text:currentmarker().contentstring"></div>
+<ul data-bind="foreach:markerlist">
+  <div data-bind="text:title"></div>
+  </ul>
+
+  <ul data-bind="foreach:markertitles">
+    <li data-bind="text:title"></li>
+
+  </ul>
 </body>
+
+
+
+
+
 </html>
