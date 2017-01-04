@@ -71,7 +71,7 @@ var initialmarkers = [];
   'api-key': "c347d6bc6a5b4be1ac897ada807b0293",
   'q':""+this.title+"",'sort':'newest'
   });
-    /*
+    
     $.ajax({
       url: url,
       method: 'GET',
