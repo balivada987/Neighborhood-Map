@@ -33,14 +33,29 @@
 </head>
 <body>
 <div id="map"></div>
+<div><input placeholder="Search…" type="search" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off">
 <ul data-bind="foreach:markerlist">
   <div data-bind="text:title"></div>
   </ul>
+</div>
 
-  <ul data-bind="foreach:markertitles">
-    <li data-bind="text:title"></li>
+   <h2 id="greeting" class="greeting">Where do you want to live?</h2>
 
-  </ul>
+
+    <div class="wikipedia-container">
+        <h3 id="wikipedia-header">Relevant Wikipedia Links</h3>
+        <ul id="wikipedia-links">Type in an address above and find relevant Wikipedia articles here!</ul>
+    </div>
+
+<div><h1>hi</h1></div>
+    <div class="nytimes-container">
+        <h3 id="nytimes-header">New York Times Articles</h3>
+        <ul id="nytimes-articles" class="article-list">What's going on in your new city? Enter an address and hit submit and the NY Times will tell you here!</ul>
+    </div>
+<div id="'images-container">
+  <img id="images">
+
+</diV>
 </body>
 
 
