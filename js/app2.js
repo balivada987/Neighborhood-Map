@@ -83,6 +83,7 @@ var initialmarkers = [];
   'api-key': "c347d6bc6a5b4be1ac897ada807b0293",
   'q':""+cityStr+"",'sort':'newest'
   });
+      alert(cityStr)
      $($nytHeaderElem).text('In'+this.address+'following is going on');
     $.ajax({
       url: url,
@@ -129,6 +130,7 @@ var initialmarkers = [];
 
 
 var contentstring="<html><div>"+this.title + this.address;
+
     this.contentstring=ko.observable(contentstring);
 
     var infowindow =new google.maps.InfoWindow({
@@ -154,30 +156,29 @@ var contentstring="<html><div>"+this.title + this.address;
 
   }
 
-  var ViewModel=function(){
-    var self=this;
-    this.markerlist=ko.observableArray([]);
-    this.markertitles=[];
-    initialmarkers.forEach(function (markeritem) {
-      self.markerlist.push(new Markerdetails(markeritem));
+  var ViewModel=function() {
+      query: ko.observable(' ');
+      var self = this;
 
+      this.markerlist = ko.observableArray([]);
+      this.markertitles = [];
 
-      self.markertitles.push(Markerdetails(markeritem.title));
-
-     console.log('these are titles'+self.markertitles);
-
-
-    })
-    alert(this.markerlist()[0].title);
-    this.currentmarker=ko.observable(this.markerlist()[0]);
-    alert(this.markerlist()[0])
-      search:function (value) {ViewModel.
-          
-      }
+      initialmarkers.forEach(function (markeritem) {
+          self.markerlist.push(new Markerdetails(markeritem));
+      })
   }
 
+          ViewModel.markeritem = ko.dependentObservable(function () {
+
+
+              var search = ViewModel.query.toLowerCase();
+              alert(search);
+              return ko.utils.arrayFilter(initialmarkers, function (markeritem) {
+                  return markeritem.title.toLowerCase().indexOf(search) >= 0;
+              });
+          }, ViewModel);
+     ko.applyBindings(new ViewModel());
+      }
 
 
 
-   ko.applyBindings(new ViewModel());
-}

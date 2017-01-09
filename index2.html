@@ -33,7 +33,15 @@
 </head>
 <body>
 <div id="map"></div>
-<div><input placeholder="Search…" type="search" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off">
+<div>
+    <form action="#">
+           <input placeholder="Search…" type="search" name="q" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off">
+        </form>
+
+    </div>
+<div class="content">
+    <ul data-bind="template: {name:'beer', foreach:beers}">
+    </ul>
 <ul data-bind="foreach:markerlist">
   <div data-bind="text:title"></div>
   </ul>
