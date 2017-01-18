@@ -35,19 +35,19 @@
 <div id="map"></div>
 <div>
     <form action="#">
-           <input placeholder="Search…" type="search" name="q" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off">
+           <p><input type="search" placeholder="Enter a place..." data-bind="textInput: userSearch"></p>
         </form>
 
     </div>
-<div class="content">
-    <ul data-bind="template: {name:'marker', foreach:initialmarkers}">
-    </ul>
-<ul data-bind="foreach:markerlist">
-  <div data-bind="text:title"></div>
-  </ul>
+< <div>
+        <ul data-bind="foreach: markerSelected">
+          <li data-bind="text: title, click: $parent:onclickoffilteredmarker"></li>
+        </ul>
+      </div>
 </div>
 
    <h2 id="greeting" class="greeting">Where do you want to live?</h2>
+
 
 
     <div class="wikipedia-container">
@@ -58,7 +58,11 @@
 <div><h1>hi</h1></div>
     <div class="nytimes-container">
         <h3 id="nytimes-header">New York Times Articles</h3>
-        <ul id="nytimes-articles" class="article-list">What's going on in your new city? Enter an address and hit submit and the NY Times will tell you here!</ul>
+
+   <ul class="" data-bind="foreach: nyArtlist">
+          <li class="" data-bind="html: $data"></li>
+        </ul>
+
     </div>
 <div id="'images-container">
   <img id="images">
